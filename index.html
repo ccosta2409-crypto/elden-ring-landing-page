@@ -174,6 +174,23 @@
   .chip{font-family:'Cinzel';letter-spacing:.2em;font-size:.78rem;text-transform:uppercase;padding:14px 22px;border:1px solid #3a3159;color:#e6dcff;background:rgba(20,12,40,.55);backdrop-filter:blur(4px);transition:border-color .4s,box-shadow .4s,transform .4s}
   .chip:hover{border-color:#a893e0;box-shadow:0 0 24px rgba(160,130,230,.3);transform:translateY(-4px)}
 
+  /* chefes mais difíceis */
+  #chefes{padding:16vh 8vw 14vh}
+  .bosses{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;max-width:1150px;margin:70px auto 0}
+  .boss{--c:200,60,50;position:relative;min-height:500px;padding:34px 30px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate;
+    border:1px solid rgba(var(--c),.35);background:linear-gradient(180deg,rgba(8,5,14,.2),rgba(8,5,14,.88));transition:transform .6s cubic-bezier(.2,.7,.2,1),border-color .6s,box-shadow .6s}
+  .boss img{position:absolute;top:0;left:0;width:100%;height:66%;object-fit:cover;z-index:-2;filter:saturate(.95) brightness(.9);transition:transform 1.4s cubic-bezier(.2,.7,.2,1),filter .6s;
+    -webkit-mask-image:linear-gradient(#000 62%,transparent);mask-image:linear-gradient(#000 62%,transparent)}
+  .boss:hover img{transform:scale(1.06);filter:saturate(1.08) brightness(1.02)}
+  .boss::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 22%,rgba(var(--c),.18),transparent 65%),linear-gradient(to top,rgba(10,6,20,.9) 30%,transparent 62%);pointer-events:none}
+  .boss:hover{transform:translateY(-10px);border-color:rgba(var(--c),.9);box-shadow:0 24px 60px rgba(0,0,0,.65),0 0 40px rgba(var(--c),.25)}
+  .boss .num{position:absolute;top:14px;left:26px;font-family:'Cinzel';font-weight:800;font-size:clamp(5rem,9vw,7.5rem);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(var(--c),.9);text-shadow:0 0 24px rgba(var(--c),.45)}
+  .boss small{font-family:'Cinzel';letter-spacing:.3em;font-size:.66rem;color:rgb(var(--c));text-transform:uppercase}
+  .boss h3{font-size:clamp(1.3rem,2.4vw,1.8rem);color:#f4eaff;margin:.35rem 0 .7rem;text-shadow:0 2px 18px #000}
+  .boss p{font-size:1.05rem;line-height:1.5;color:#c9bfe0}
+  .boss .pips{display:flex;gap:7px;margin-top:1.1rem}
+  .boss .pips i{width:9px;height:9px;transform:rotate(45deg);background:rgb(var(--c));box-shadow:0 0 10px rgba(var(--c),.8)}
+
   .final{text-align:center;min-height:90vh;display:grid;place-items:center;padding:0 8vw;background:radial-gradient(ellipse at 50% 110%,rgba(90,60,140,.7),transparent 65%)}
   .final h2{font-size:clamp(2.2rem,6vw,4.6rem);margin-bottom:1.2rem}
   .final .btn{margin-top:2.2rem;font-size:.9rem;padding:20px 54px}
@@ -306,6 +323,16 @@
     <div class="hg-ctl"><button class="prev" aria-label="Anterior">‹</button><button class="pp" aria-label="Pausar">❚❚</button><button class="next" aria-label="Próximo">›</button></div>
     <div class="hg-track"></div>
     <div class="hg-bar"><i></i></div>
+  </div>
+</section>
+
+<section class="dark2" id="chefes">
+  <div class="divider reveal"><span>✦</span></div>
+  <h2 class="reveal d1">Os Três Mais Temidos</h2>
+  <div class="bosses">
+    <article class="boss reveal d1" style="--c:214,72,58"><img src="https://static0.fextralifeimages.com/file/eldenring/thumb/1/1c/Er_malenia_face.png/800px-Er_malenia_face.png" alt="Malenia, Lâmina de Miquella" loading="lazy" referrerpolicy="no-referrer" style="object-position:50% 12%" onerror="this.remove()"><div class="num">1</div><small>Jogo base · opcional</small><h3>Malenia, Lâmina de Miquella</h3><p>Cura a si mesma a cada golpe que acerta, e quase não dá pausa para você respirar.</p><div class="pips"><i></i><i></i><i></i><i></i><i></i></div></article>
+    <article class="boss reveal d2" style="--c:176,140,255"><img src="https://static0.fextralifeimages.com/file/eldenring/1/16/Radahn_consort_of_miquella_bosses_elden_ring_wiki_600px.png" alt="Consorte Prometido Radahn" loading="lazy" referrerpolicy="no-referrer" style="object-position:100% 20%" onerror="this.remove()"><div class="num">2</div><small>Shadow of the Erdtree</small><h3>Consorte Prometido Radahn</h3><p>A luta final da expansão cobra tudo o que o jogo já ensinou a você.</p><div class="pips"><i></i><i></i><i></i><i></i><i></i></div></article>
+    <article class="boss reveal d3" style="--c:240,150,60"><img src="https://static0.fextralifeimages.com/file/eldenring/6/66/Bayle_the_dread_bosses_elden_ring_wiki_1200px.png" alt="Bayle, o Pavoroso" loading="lazy" referrerpolicy="no-referrer" style="object-position:20% 30%" onerror="this.remove()"><div class="num">3</div><small>Shadow of the Erdtree · opcional</small><h3>Bayle, o Pavoroso</h3><p>Um dragão furioso que faz chover fogo e relâmpagos sobre quem sobe até ele.</p><div class="pips"><i></i><i></i><i></i><i></i><i></i></div></article>
   </div>
 </section>
 
@@ -721,7 +748,7 @@ const trig = [
   {name:'Terra das Sombras', sub:'LUGAR DESCOBERTO', ok:() => t2 > .86},
   {name:'Sua jornada começa', sub:'GRAÇA DESCOBERTA', ok:() => sec('#fim').top - scrollY < innerHeight*.5}
 ].map(t => ({...t, done:false}));
-const chapters = [['#journey','Despertar'],['#manifesto','O Mundo'],['#lugares','Terras Intermédias'],['#dlc','Shadow of the Erdtree'],['#dlcgal','Terra das Sombras'],['#fim','Graça']];
+const chapters = [['#journey','Despertar'],['#manifesto','O Mundo'],['#lugares','Terras Intermédias'],['#dlc','Shadow of the Erdtree'],['#dlcgal','Terra das Sombras'],['#chefes','Chefes'],['#fim','Graça']];
 $('#dots').innerHTML = chapters.map((c,i) => `<a class="dot"><i></i><span>${c[1]}</span></a>`).join('');
 const dotEls = $$('.dot');
 dotEls.forEach((d,i) => d.addEventListener('click', () => { const e = $(chapters[i][0]); scrollTo({top: i === 0 ? 0 : e.getBoundingClientRect().top + scrollY + 2, behavior:'smooth'}); }));
