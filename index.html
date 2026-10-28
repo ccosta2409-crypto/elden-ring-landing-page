@@ -190,6 +190,16 @@
   .boss p{font-size:1.05rem;line-height:1.5;color:#c9bfe0}
   .boss .pips{display:flex;gap:7px;margin-top:1.1rem}
   .boss .pips i{width:9px;height:9px;transform:rotate(45deg);background:rgb(var(--c));box-shadow:0 0 10px rgba(var(--c),.8)}
+  #duvidas{padding:8vh 8vw 14vh}
+  .faq{max-width:820px;margin:60px auto 0;display:grid;gap:14px}
+  .faq details{border:1px solid var(--line);background:linear-gradient(180deg,rgba(8,5,14,.35),rgba(8,5,14,.8));transition:border-color .4s,box-shadow .4s}
+  .faq details:hover,.faq details[open]{border-color:var(--gold);box-shadow:0 0 30px rgba(176,140,255,.12)}
+  .faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 26px;font-family:'Cinzel';letter-spacing:.08em;font-size:clamp(.95rem,1.9vw,1.15rem);color:var(--text)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"";flex:none;width:9px;height:9px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg);transition:transform .4s}
+  .faq details[open] summary::after{transform:rotate(225deg)}
+  .faq .ans{padding:0 26px 24px;font-size:1.1rem;line-height:1.6;color:#c9bfe0}
+  .faq .ans b{color:var(--gold);font-weight:600}
 
   .final{text-align:center;min-height:90vh;display:grid;place-items:center;padding:0 8vw;background:radial-gradient(ellipse at 50% 110%,rgba(90,60,140,.7),transparent 65%)}
   .final h2{font-size:clamp(2.2rem,6vw,4.6rem);margin-bottom:1.2rem}
@@ -333,6 +343,17 @@
     <article class="boss reveal d1" style="--c:214,72,58"><img src="https://static0.fextralifeimages.com/file/eldenring/thumb/1/1c/Er_malenia_face.png/800px-Er_malenia_face.png" alt="Malenia, Lâmina de Miquella" loading="lazy" referrerpolicy="no-referrer" style="object-position:50% 12%" onerror="this.remove()"><div class="num">1</div><small>Jogo base · opcional</small><h3>Malenia, Lâmina de Miquella</h3><p>Cura a si mesma a cada golpe que acerta, e quase não dá pausa para você respirar.</p><div class="pips"><i></i><i></i><i></i><i></i><i></i></div></article>
     <article class="boss reveal d2" style="--c:176,140,255"><img src="https://static0.fextralifeimages.com/file/eldenring/1/16/Radahn_consort_of_miquella_bosses_elden_ring_wiki_600px.png" alt="Consorte Prometido Radahn" loading="lazy" referrerpolicy="no-referrer" style="object-position:100% 20%" onerror="this.remove()"><div class="num">2</div><small>Shadow of the Erdtree</small><h3>Consorte Prometido Radahn</h3><p>A luta final da expansão cobra tudo o que o jogo já ensinou a você.</p><div class="pips"><i></i><i></i><i></i><i></i><i></i></div></article>
     <article class="boss reveal d3" style="--c:240,150,60"><img src="https://static0.fextralifeimages.com/file/eldenring/6/66/Bayle_the_dread_bosses_elden_ring_wiki_1200px.png" alt="Bayle, o Pavoroso" loading="lazy" referrerpolicy="no-referrer" style="object-position:20% 30%" onerror="this.remove()"><div class="num">3</div><small>Shadow of the Erdtree · opcional</small><h3>Bayle, o Pavoroso</h3><p>Um dragão furioso que faz chover fogo e relâmpagos sobre quem sobe até ele.</p><div class="pips"><i></i><i></i><i></i><i></i><i></i></div></article>
+  </div>
+</section>
+
+<section class="dark2" id="duvidas">
+  <div class="divider reveal"><span>✦</span></div>
+  <h2 class="reveal d1">Antes de Partir</h2>
+  <div class="faq reveal d2">
+    <details open><summary>Quanto tempo leva para zerar?</summary><div class="ans">Em média, <b>cerca de 55 a 60 horas</b> seguindo só a história principal. Explorando com calma e fazendo as missões opcionais, passa fácil de <b>100 horas</b>. Shadow of the Erdtree acrescenta mais algumas dezenas de horas por cima.</div></details>
+    <details><summary>Qual a melhor classe para iniciante?</summary><div class="ans">O <b>Vagabundo</b>. Ele começa com bastante vida, uma espada e um escudo, que perdoam erros enquanto você aprende o ritmo dos combates. Mas a classe só define o começo: dá para mudar de estilo no meio do caminho.</div></details>
+    <details><summary>O que devo esperar do jogo?</summary><div class="ans">Um mundo aberto <b>sem mapa de tarefas</b>: ninguém aponta o caminho, e descobrir as coisas faz parte da graça. Você vai morrer bastante, e cada morte ensina algo. É um jogo difícil, mas justo, e dá para pedir ajuda a outros jogadores nas lutas mais duras.</div></details>
+    <details><summary>Preciso jogar algo antes?</summary><div class="ans"><b>Não.</b> Elden Ring é independente de outros jogos da FromSoftware. A expansão Shadow of the Erdtree, porém, só faz sentido depois de avançar bastante no jogo base.</div></details>
   </div>
 </section>
 
@@ -748,7 +769,7 @@ const trig = [
   {name:'Terra das Sombras', sub:'LUGAR DESCOBERTO', ok:() => t2 > .86},
   {name:'Sua jornada começa', sub:'GRAÇA DESCOBERTA', ok:() => sec('#fim').top - scrollY < innerHeight*.5}
 ].map(t => ({...t, done:false}));
-const chapters = [['#journey','Despertar'],['#manifesto','O Mundo'],['#lugares','Terras Intermédias'],['#dlc','Shadow of the Erdtree'],['#dlcgal','Terra das Sombras'],['#chefes','Chefes'],['#fim','Graça']];
+const chapters = [['#journey','Despertar'],['#manifesto','O Mundo'],['#lugares','Terras Intermédias'],['#dlc','Shadow of the Erdtree'],['#dlcgal','Terra das Sombras'],['#chefes','Chefes'],['#duvidas','Dúvidas'],['#fim','Graça']];
 $('#dots').innerHTML = chapters.map((c,i) => `<a class="dot"><i></i><span>${c[1]}</span></a>`).join('');
 const dotEls = $$('.dot');
 dotEls.forEach((d,i) => d.addEventListener('click', () => { const e = $(chapters[i][0]); scrollTo({top: i === 0 ? 0 : e.getBoundingClientRect().top + scrollY + 2, behavior:'smooth'}); }));
